@@ -54,6 +54,16 @@ async function run() {
         })
 
 
+        // Decrease the quantity of book after clicking to the "Delivered" button
+        app.post('/books/:id/delivered', async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) };
+            const update = { $inc: { quantity: -1 } };
+            const result = await bookCollection.findOneAndUpdate(filter, update, { returnDocument: 'after' });
+            res.send(result);
+        })
+
+
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
