@@ -63,6 +63,16 @@ async function run() {
             res.send(result);
         })
 
+        // Update the quantity of book after submitting the "Restock" form
+        app.post('/books/:id/restock', async (req, res) => {
+            const { quantity } = req.body;
+            console.log(quantity);
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) };
+            const update = { $inc: { quantity: parseInt(quantity) } };
+            const result = await bookCollection.findOneAndUpdate(filter, update, { returnDocument: "after" });
+            res.send(result);
+        })
 
 
         // Send a ping to confirm a successful connection
