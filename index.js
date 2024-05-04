@@ -75,7 +75,7 @@ async function run() {
             res.send(result);
         })
 
-        // Delete a book 
+        // Delete a book from ManageItems
         app.delete('/books/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) };
@@ -98,6 +98,22 @@ async function run() {
             const result = await addNewBookCollection.insertOne(newBook);
             res.send(result);
 
+        })
+
+        // Get a specific book in newBookCollection
+        app.get('/newAddedBooks/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await addNewBookCollection.findOne(query);
+            res.send(result);
+        })
+
+        // Delete a newly added book from MyItems
+        app.delete('/newAddedBooks/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await addNewBookCollection.deleteOne(query);
+            res.send(result);
         })
 
         // Send a ping to confirm a successful connection
