@@ -52,6 +52,15 @@ async function run() {
                 .send({ success: true });
         })
 
+        // Clear the cookie after logout
+        app.post('/logout', async (req, res) => {
+            const user = req.body;
+            console.log("Logging out", user);
+            res
+                .clearCookie('token', { maxAge: 0 })
+                .send({ success: true });
+        })
+
         // Find all (10) books data
         app.get('/books/all', async (req, res) => {
             const cursor = bookCollection.find();
