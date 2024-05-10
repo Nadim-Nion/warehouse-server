@@ -12,7 +12,8 @@ app.use(cors({
     origin: [
         // 'http://localhost:5173'
         'https://warehouse-client-74323.web.app',
-        'https://warehouse-client-74323.firebaseapp.com'
+        'https://warehouse-client-74323.firebaseapp.com',
+        'https://warehouse-client-nion.netlify.app'
     ],
     credentials: true
 }));
