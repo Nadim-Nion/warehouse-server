@@ -10,7 +10,9 @@ const port = process.env.PORT || 5000;
 //Middlewares
 app.use(cors({
     origin: [
-        'http://localhost:5173'
+        // 'http://localhost:5173'
+        'https://warehouse-client-74323.web.app',
+        'https://warehouse-client-74323.firebaseapp.com'
     ],
     credentials: true
 }));
