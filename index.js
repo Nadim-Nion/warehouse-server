@@ -84,7 +84,10 @@ async function run() {
 
         // Find all (10) books data
         app.get('/books/all', async (req, res) => {
-            const cursor = bookCollection.find();
+            // console.log('Pagination Query', req.query);
+            const page = parseInt(req.query.page);
+            const size = parseInt(req.query.size);
+            const cursor = bookCollection.find().skip(page * size).limit(size);
             const result = await cursor.toArray();
             res.send(result);
         })
