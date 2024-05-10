@@ -13,7 +13,8 @@ app.use(cors({
         // 'http://localhost:5173'
         'https://warehouse-client-74323.web.app',
         'https://warehouse-client-74323.firebaseapp.com',
-        'https://warehouse-client-nion.netlify.app'
+        'https://warehouse-client-nion.netlify.app',
+        'https://festive-government.surge.sh'
     ],
     credentials: true
 }));
