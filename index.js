@@ -14,7 +14,7 @@ app.use(cors({
         'https://warehouse-client-74323.web.app',
         'https://warehouse-client-74323.firebaseapp.com',
         'https://warehouse-client-nion.netlify.app',
-        'https://festive-government.surge.sh'
+        'http://narrow-yoke.surge.sh'
     ],
     credentials: true
 }));
